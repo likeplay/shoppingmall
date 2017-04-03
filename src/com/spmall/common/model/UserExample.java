@@ -3,14 +3,14 @@ package com.spmall.common.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CtUserExample {
+public class UserExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CtUserExample() {
+    public UserExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

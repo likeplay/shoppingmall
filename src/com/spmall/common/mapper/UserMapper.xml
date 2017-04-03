@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.spmall.common.mapper.CtUserMapper" >
-  <resultMap id="BaseResultMap" type="com.spmall.common.model.CtUser" >
+<mapper namespace="com.spmall.common.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.spmall.common.model.User" >
     <result column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -67,11 +67,12 @@
   <sql id="Base_Column_List" >
     id, name, password
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.spmall.common.model.CtUserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.spmall.common.model.UserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
+    'true' as QUERYID,
     <include refid="Base_Column_List" />
     from ct_user
     <if test="_parameter != null" >
@@ -81,19 +82,19 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.spmall.common.model.CtUserExample" >
+  <delete id="deleteByExample" parameterType="com.spmall.common.model.UserExample" >
     delete from ct_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.spmall.common.model.CtUser" >
+  <insert id="insert" parameterType="com.spmall.common.model.User" >
     insert into ct_user (id, name, password
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.spmall.common.model.CtUser" >
+  <insert id="insertSelective" parameterType="com.spmall.common.model.User" >
     insert into ct_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -118,7 +119,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.spmall.common.model.CtUserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.spmall.common.model.UserExample" resultType="java.lang.Integer" >
     select count(*) from ct_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

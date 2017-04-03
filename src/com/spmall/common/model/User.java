@@ -1,6 +1,6 @@
 package com.spmall.common.model;
 
-public class CtUser {
+public class User {
     private Integer id;
 
     private String name;

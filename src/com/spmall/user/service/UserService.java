@@ -2,8 +2,10 @@ package com.spmall.user.service;
 
 import java.util.List;
 
-import com.spmall.common.model.CtUser;
+import com.spmall.common.model.User;
+
+
 
 public interface UserService {
-	public List<CtUser> findUserList() throws Exception;
+	public List<User> findUserList() throws Exception;
 }
